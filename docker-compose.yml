@@ -1,0 +1,14 @@
+version: '3'
+services:
+  fakesmtp:
+    build: .
+    hostname: 'fakesmtp'
+    ports:
+      - '25:25'
+    volumes:
+      - ./emails_enviados:/output
+    command: 'bash'
+networks:
+  default:
+    external:
+      name: 'controladorrails_vpc'
